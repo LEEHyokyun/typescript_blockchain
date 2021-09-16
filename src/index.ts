@@ -1,20 +1,33 @@
-class Human{
-    private name: string
-    public age: number
-    public job: string
-    constructor(name: string, age: number, job: string){
-        this.name = name
-        this.age = age
-        this.job = job
+class Block {
+    public index: number;
+    public hash: string;
+    public previousHash: string;
+    public data: string;
+    public timestamp: number;
+
+    constructor(
+        index: number,
+        hash: string,
+        previousHash: string,
+        data: string,
+        timestamp: number
+    ){
+        this.index = index;
+        this.hash = hash;
+        this.previousHash = previousHash;
+        this.data = data;
+        this.timestamp = timestamp;
     }
 }
 
-const person1 = new Human("LEE HYO KYUN", 15, "Developer")
+// declare : type
+const firstBlock : Block = new Block(0, "20200916", "", "FIRST", 0);
 
-const foo = (person: Human) => {
-    return `HELLO ${person.name}(_${person.age})! How are your ${person.job} going?`
-}
+// declare : type(array)
+// array only allows the same class as Block.
+let blockchain : [Block] = [firstBlock]
 
-console.log(foo(person1))
+// check the log
+console.log(blockchain)
 
 export {}
