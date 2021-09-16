@@ -1,19 +1,20 @@
-interface Human {
-    name: string,
-    age: number,
-    job: string
+class Human{
+    private name: string
+    public age: number
+    public job: string
+    constructor(name: string, age: number, job: string){
+        this.name = name
+        this.age = age
+        this.job = job
+    }
 }
 
-const person = {
-    name: "LEE HYO KYUN",
-    age: 15,
-    job: "ENGINEER"
+const person1 = new Human("LEE HYO KYUN", 15, "Developer")
+
+const foo = (person: Human) => {
+    return `HELLO ${person.name}(_${person.age})! How are your ${person.job} going?`
 }
 
-const foo = (Human) => {
-    return `HELLO ${Human.name}(_${Human.age})! How are your ${Human.job} going?`
-}
-
-console.log(foo(person))
+console.log(foo(person1))
 
 export {}
